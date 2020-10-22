@@ -56,8 +56,10 @@ jobs:
         pip3 install -r requirements.txt
 
     - name: Mac Os install
-      if: matrix.os == 'macos-latest'
+      if: matrix.os == 'macos-11.0'
       run : |
+        brew untap caskroom/cask caskroom/drivers caskroom/fonts
+        brew tap homebrew/cask-drivers homebrew/cask-fonts
         brew untap homebrew/homebrew-cask-drivers
         brew reinstall cask
         brew update
